@@ -436,16 +436,18 @@ create or replace package body  pacote-funcoes is
 	RETURN VARCHAR IS 
 	BEG IN RETURN ( Função multiplicar )
 	END MULTIPLICARR;
+	
 	FUNCTION RETORNAVALORDAPOTENCIAE(BASE IN NUMBER, EXPOENTE IN NUMBER)
 	RETURN VARCHAR IS
 	BEG IN RETURN (‘ Função retorna valor da potencia’ )
 	END RETORNAVALORDAPOTENCIAE;
+	
 	fuction calcularSalario(salalario in number)
 	return varchar is
 	begin in return (Funcao calcular salario)
 	end calcularSalario;
 
-Crie um pacote com as 2 procedimento criadas no exercício 3.
+5.Crie um pacote com as 2 procedimento criadas no exercício 3.
 
 - Declare os elementos no Pacote e crie um corpo de pacote para os procedimento.
 
@@ -462,7 +464,7 @@ create or replace package body pacote-procedimentos is
 		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento 2’)
 	end buscaNomeESalairioMedicos2
 
-Crie um pacote com todas as funções e procedimentos criadas no exercício 2 e 3.
+6.Crie um pacote com todas as funções e procedimentos criadas no exercício 2 e 3.
 
 - Declare os elementos no Pacote e crie um corpo de pacote.
 
