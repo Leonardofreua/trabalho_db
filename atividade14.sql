@@ -443,6 +443,9 @@ create or replace package body  pacote-funcoes is
 	return varchar is
 	begin in return (Funcao calcular salario)
 	end calcularSalario;
+	
+EXEC pacote-funcoes.MULTIPLICARR;
+EXEC pacote-funcoes.calcularSalario;
 
 -4.Crie um pacote com as 2 procedimento criadas no exercício 3.
 
@@ -460,6 +463,9 @@ create or replace package body pacote-procedimentos is
 	begin
 		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento 2’)
 	end buscaNomeESalairioMedicos2
+
+EXEC pacote-procedimentos.buscaNomeESalairioMedicos1;
+EXEC pacote-procedimentos.buscaNomeESalairioMedicos2;
 
 --4.Crie um pacote com todas as funções e procedimentos criadas no exercício 2 e 3.
 
