@@ -444,9 +444,68 @@ START WITH 1
 NOMAXVALUE
 NOCACHE
 NOCYCLE
-ORDER;					    
+ORDER;	
 
+					    CREATE TRIGGER especialidade_trig BEFORE INSERT ON ESPECIALIDADE FOR EACH ROW
+BEGIN
+  :NEW.id := especialidade_seq.NEXTVAL;
+END;
 
+CREATE TRIGGER hospital_trig BEFORE INSERT ON HOSPITAL FOR EACH ROW
+BEGIN
+  :NEW.id := hospital_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER plano_saude_trig BEFORE INSERT ON PLANO_SAUDE FOR EACH ROW
+BEGIN
+  :NEW.id := plano_saude_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER paciente_trig BEFORE INSERT ON PACIENTE FOR EACH ROW
+BEGIN
+  :NEW.id := paciente_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER enfermeiro_trig BEFORE INSERT ON ENFERMEIRO FOR EACH ROW
+BEGIN
+  :NEW.id := enfermeiro_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER medicos_trig BEFORE INSERT ON MEDICOS FOR EACH ROW
+BEGIN
+  :NEW.id := medicos_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER atendimento_trig BEFORE INSERT ON ATENDIMENTO FOR EACH ROW
+BEGIN
+  :NEW.id := atendimento_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER credenciamento_hospital_trig BEFORE INSERT ON CREDENCIAMENTO_HOSPITAL FOR EACH ROW
+BEGIN
+  :NEW.id := credenciamento_hospital_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER credenciamento_medico_trig BEFORE INSERT ON CREDENCIAMENTO_MEDICO FOR EACH ROW
+BEGIN
+  :NEW.id := credenciamento_medico_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER alas_trig BEFORE INSERT ON ALAS FOR EACH ROW
+BEGIN
+  :NEW.id := alas_seq.NEXTVAL;
+END;
+
+CREATE TRIGGER internacao_trig BEFORE INSERT ON INTERNACAO FOR EACH ROW
+BEGIN
+  :NEW.id := internacao_seq.NEXTVAL;
+END;
+					    
+CREATE TRIGGER historico_trig BEFORE INSERT ON HISTORICO FOR EACH ROW
+BEGIN
+  :NEW.id := historico_seq.NEXTVAL;
+END;
+					    
 --4. Crie os seguintes Pacotes:-
 --Crie um pacote com as 3 funções criadas no exercicio 2.-
 -- Declare os elementos no Paconte e crie um corpo de pacote para as funções.
