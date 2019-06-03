@@ -58,19 +58,6 @@ CREATE TABLE HOSPITAL(
 	CNPJ INTEGER,
 	CONSTRAINT PK_HOSPITAL PRIMARY KEY(ID)
 );
-GRANT CREATE ANY TABLE TO HOSPITAL;
-GRANT CREATE ANY TABLE TO ESPECIALIDADE;
-GRANT CREATE ANY TABLE TO PLANO_SAUDE;
-GRANT CREATE ANY TABLE TO CATEGORIA;
-GRANT CREATE ANY TABLE TO PACIENTE;
-GRANT CREATE ANY TABLE TO MEDICOS;
-GRANT CREATE ANY TABLE TO ENFERMEIRO;
-GRANT CREATE ANY TABLE TO ATENDIMENTO;
-GRANT CREATE ANY TABLE TO CREDENCIAMENTO_HOSPITAL;
-GRANT CREATE ANY TABLE TO CREDENCIAMENTO_MEDICO;
-GRANT CREATE ANY TABLE TO ALAS;
-GRANT CREATE ANY TABLE TO INTERNACAO;
-GRANT CREATE ANY TABLE TO HISTORICO;
 
 CREATE TABLE ESPECIALIDADE(
 	ID INTEGER,
@@ -559,15 +546,15 @@ EXEC pacote-procedimentos.buscaNomeESalairioMedicos2;
 
 -- Teste todas as operações.
 create or replace package body pacote-procedimentos-funcoes
-	procedure buscaNomeESalairioMedicos1()(
+	procedure buscaNomeESalairioMedicos1()
 	is 
 	Begin
 		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento1’)
 	end buscaNomeESalairioMedicos1;
 				     
-	procedure buscaNomeESalairioMedicos2()(
+	procedure buscaNomeESalairioMedicos2()
 	is 
-	begin
+	Begin
 		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento 2’)
 	end buscaNomeESalairioMedicos2;	
 					    
@@ -590,5 +577,22 @@ EXEC pacote-procedimentos-funcoes.buscaNomeESalairioMedicos1;
 EXEC pacote-procedimentos-funcoes.buscaNomeESalairioMedicos2;
 EXEC pacote-procedimentos-funcoes.MULTIPLICARR;
 EXEC pacote-procedimentos-funcoes.calcularSalario;
+					    
+5. Utilizando SQL dinâmico crie um procedimento que cria todo o banco de dados e estrutura de Hospital.	
+					    
+GRANT CREATE ANY TABLE TO HOSPITAL;
+GRANT CREATE ANY TABLE TO ESPECIALIDADE;
+GRANT CREATE ANY TABLE TO PLANO_SAUDE;
+GRANT CREATE ANY TABLE TO CATEGORIA;
+GRANT CREATE ANY TABLE TO PACIENTE;
+GRANT CREATE ANY TABLE TO MEDICOS;
+GRANT CREATE ANY TABLE TO ENFERMEIRO;
+GRANT CREATE ANY TABLE TO ATENDIMENTO;
+GRANT CREATE ANY TABLE TO CREDENCIAMENTO_HOSPITAL;
+GRANT CREATE ANY TABLE TO CREDENCIAMENTO_MEDICO;
+GRANT CREATE ANY TABLE TO ALAS;
+					    
+GRANT CREATE ANY TABLE TO INTERNACAO;
+GRANT CREATE ANY TABLE TO HISTORICO;
 
 
