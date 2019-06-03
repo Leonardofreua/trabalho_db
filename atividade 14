@@ -332,9 +332,7 @@ BEGIN
     CLOSE CURSOR_MEDICOS;
 END;
 
-
-
--- 3Crie sequencias e gatilhos para todas as entidades, garantindo que o identificador único das entidades auto
+-- 3.Crie sequencias e gatilhos para todas as entidades, garantindo que o identificador único das entidades auto
 
 CREATE SEQUENCE especialidade_seq
 INCREMENT BY 1
@@ -408,7 +406,6 @@ NOCACHE
 NOCYCLE
 ORDER;
 
-
 CREATE SEQUENCE internacao_seq
 INCREMENT BY 1
 START WITH 1
@@ -425,12 +422,12 @@ NOCACHE
 NOCYCLE
 ORDER;
 
--- incremente de maneira automática sem a necessidade de inseri-lo manualmente.
-4. Crie os seguintes Pacotes:-
-Crie um pacote com as 3 funções criadas no exercicio 2.-
-- Declare os elementos no Paconte e crie um corpo de pacote para as funções.
 
-- Teste a execução das Funçoes.
+--4. Crie os seguintes Pacotes:-
+--Crie um pacote com as 3 funções criadas no exercicio 2.-
+-- Declare os elementos no Paconte e crie um corpo de pacote para as funções.
+
+--Teste a execução das Funçoes.
 create or replace package body  pacote-funcoes is
 	 FUNCTION MULTIPLICARR(VALOR1 IN NUMBER, VALOR2 IN NUMBER)
 	RETURN VARCHAR IS 
@@ -447,11 +444,11 @@ create or replace package body  pacote-funcoes is
 	begin in return (Funcao calcular salario)
 	end calcularSalario;
 
-5.Crie um pacote com as 2 procedimento criadas no exercício 3.
+-4.Crie um pacote com as 2 procedimento criadas no exercício 3.
 
-- Declare os elementos no Pacote e crie um corpo de pacote para os procedimento.
+--Declare os elementos no Pacote e crie um corpo de pacote para os procedimento.
 
-- Teste a execução das Procedimento.
+-- Teste a execução das Procedimento.
 create or replace package body pacote-procedimentos is
 	procedure buscaNomeESalairioMedicos1()(
 	is 
@@ -464,10 +461,10 @@ create or replace package body pacote-procedimentos is
 		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento 2’)
 	end buscaNomeESalairioMedicos2
 
-6.Crie um pacote com todas as funções e procedimentos criadas no exercício 2 e 3.
+--4.Crie um pacote com todas as funções e procedimentos criadas no exercício 2 e 3.
 
-- Declare os elementos no Pacote e crie um corpo de pacote.
+--Declare os elementos no Pacote e crie um corpo de pacote.
 
-- Baseado no modelo de Hospital implemente uma operação (Função, Procedimento, ...) e insira no pacote. 
+-- Baseado no modelo de Hospital implemente uma operação (Função, Procedimento, ...) e insira no pacote. 
 
-- Teste todas as operações.
+-- Teste todas as operações.
