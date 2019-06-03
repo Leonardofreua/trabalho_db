@@ -58,6 +58,19 @@ CREATE TABLE HOSPITAL(
 	CNPJ INTEGER,
 	CONSTRAINT PK_HOSPITAL PRIMARY KEY(ID)
 );
+GRANT CREATE ANY TABLE TO HOSPITAL;
+GRANT CREATE ANY TABLE TO ESPECIALIDADE;
+GRANT CREATE ANY TABLE TO PLANO_SAUDE;
+GRANT CREATE ANY TABLE TO CATEGORIA;
+GRANT CREATE ANY TABLE TO PACIENTE;
+GRANT CREATE ANY TABLE TO MEDICOS;
+GRANT CREATE ANY TABLE TO ENFERMEIRO;
+GRANT CREATE ANY TABLE TO ATENDIMENTO;
+GRANT CREATE ANY TABLE TO CREDENCIAMENTO_HOSPITAL;
+GRANT CREATE ANY TABLE TO CREDENCIAMENTO_MEDICO;
+GRANT CREATE ANY TABLE TO ALAS;
+GRANT CREATE ANY TABLE TO INTERNACAO;
+GRANT CREATE ANY TABLE TO HISTORICO;
 
 CREATE TABLE ESPECIALIDADE(
 	ID INTEGER,
@@ -187,7 +200,7 @@ BEGIN
 RETURN VALOR1 *VALOR2;
 END MULTIPLICARR;
 
-SELECT MULTIPLICARR(COUNT(MEDICOS.ID),COUNT(PACIENTE.ID)) FROM MEDICOS, PACIENTE;---
+SELECT MULTIPLICARR(COUNT(MEDICOS.ID),COUNT(PACIENTE.ID)) FROM MEDICOS, PACIENTE;
 
 -- 2. Crie uma função que recebe 2 números inteiros (base e expoente) e retorna o valor da potência.
 --
@@ -211,7 +224,6 @@ RETURN RESULTADO;
 END RETORNAVALORDAPOTENCIAE;
 
 SELECT RETORNAVALORDAPOTENCIAE(COUNT(MEDICOS.ID),COUNT(PACIENTE.ID)) FROM MEDICOS, PACIENTE;
-
 
 -- -2. Crie uma função que recebe o salário e calcula e retorna qual o valor que será descontado no total durante o ano inteiro de trabalho.
 --
@@ -258,9 +270,6 @@ while cont <=13 loop
 end loop;
 return  salario-((soma*isento)/100);
 end calcularSalario;
-
-
-
 -- 3. Crie um procedimento utilizando CURSOR que busca o nome e salário dos médicos formados em 2015 com salários maiores de R$ 10.000,00 que atenderam pacientes que são associados em plano de saúde que esses médicos são credenciados.
 --
 -- - No mesmo procedimento o CURSOR deve ser percorrido cada registro e armazenar em outra tabela o nome e salário desses médicos sem serem repetições.
@@ -283,7 +292,6 @@ DECLARE
         ON MEDICOS.ID = CREDENCIAMENTO_MEDICO.ID_MEDICO JOIN PLANO_SAUDE ON
         PLANO_SAUDE.ID = CREDENCIAMENTO_MEDICO.ID_PLANO WHERE MEDICOS.FORMACAO = 2015 AND
         MEDICOS.SALARIO  > 10.000;
-
 BEGIN
     OPEN CURSOR_MEDICOS;
 
@@ -421,6 +429,22 @@ NOMAXVALUE
 NOCACHE
 NOCYCLE
 ORDER;
+					    
+CREATE SEQUENCE internacao_seq
+INCREMENT BY 1
+START WITH 1
+NOMAXVALUE
+NOCACHE
+NOCYCLE
+ORDER;
+
+CREATE SEQUENCE historico_seq
+INCREMENT BY 1
+START WITH 1
+NOMAXVALUE
+NOCACHE
+NOCYCLE
+ORDER;					    
 
 
 --4. Crie os seguintes Pacotes:-
@@ -447,7 +471,7 @@ create or replace package body  pacote-funcoes is
 EXEC pacote-funcoes.MULTIPLICARR;
 EXEC pacote-funcoes.calcularSalario;
 
--4.Crie um pacote com as 2 procedimento criadas no exercício 3.
+--4.Crie um pacote com as 2 procedimento criadas no exercício 3.
 
 --Declare os elementos no Pacote e crie um corpo de pacote para os procedimento.
 
