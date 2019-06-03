@@ -429,7 +429,7 @@ ORDER;
 
 --Teste a execução das Funçoes.
 create or replace package body  pacote-funcoes is
-	 FUNCTION MULTIPLICARR(VALOR1 IN NUMBER, VALOR2 IN NUMBER)
+	FUNCTION MULTIPLICARR(VALOR1 IN NUMBER, VALOR2 IN NUMBER)
 	RETURN VARCHAR IS 
 	BEG IN RETURN ( Função multiplicar )
 	END MULTIPLICARR;
@@ -457,12 +457,13 @@ create or replace package body pacote-procedimentos is
 	is 
 	Begin
 		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento1’)
-	end buscaNomeESalairioMedicos1
+	end buscaNomeESalairioMedicos1;
+				     
 	procedure buscaNomeESalairioMedicos2()(
 	is 
 	begin
 		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento 2’)
-	end buscaNomeESalairioMedicos2
+	end buscaNomeESalairioMedicos2;
 
 EXEC pacote-procedimentos.buscaNomeESalairioMedicos1;
 EXEC pacote-procedimentos.buscaNomeESalairioMedicos2;
@@ -474,3 +475,37 @@ EXEC pacote-procedimentos.buscaNomeESalairioMedicos2;
 -- Baseado no modelo de Hospital implemente uma operação (Função, Procedimento, ...) e insira no pacote. 
 
 -- Teste todas as operações.
+create or replace package body pacote-procedimentos-funcoes
+	procedure buscaNomeESalairioMedicos1()(
+	is 
+	Begin
+		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento1’)
+	end buscaNomeESalairioMedicos1;
+				     
+	procedure buscaNomeESalairioMedicos2()(
+	is 
+	begin
+		DBMS_OUTPUT.PUT_LINE('Esta eh a mensagem da Procedimento 2’)
+	end buscaNomeESalairioMedicos2;	
+					    
+	FUNCTION MULTIPLICARR(VALOR1 IN NUMBER, VALOR2 IN NUMBER)
+	RETURN VARCHAR IS 
+	BEG IN RETURN ( 'Função multiplicar' )
+	END MULTIPLICARR;
+	
+	FUNCTION RETORNAVALORDAPOTENCIAE(BASE IN NUMBER, EXPOENTE IN NUMBER)
+	RETURN VARCHAR IS
+	BEG IN RETURN (‘ Função retorna valor da potencia’ )
+	END RETORNAVALORDAPOTENCIAE;
+	
+	fuction calcularSalario(salalario in number)
+	return varchar is
+	begin in return ('Funcao calcular salario')
+	end calcularSalario;
+					    
+EXEC pacote-procedimentos-funcoes.buscaNomeESalairioMedicos1;
+EXEC pacote-procedimentos-funcoes.buscaNomeESalairioMedicos2;
+EXEC pacote-procedimentos-funcoes.MULTIPLICARR;
+EXEC pacote-procedimentos-funcoes.calcularSalario;
+
+
