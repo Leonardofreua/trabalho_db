@@ -424,6 +424,7 @@ end calcularSalario;
 -- - Imprima no console a lista de médicos e salários.
 --
 -- - Imprima a média dos salários.
+CREATE PROCEDURE buscaMedico2					   
 DECLARE
     NOME MEDICOS.NOME%TYPE;
     SALARIO MEDICOS.SALARIO%TYPE;
@@ -460,6 +461,8 @@ COMMIT;
 -- - Imprima no console a lista de médicos e salários.
 --
 -- - Imprima a média dos salários.
+					    
+CREATE PROCEDURE buscaMedicos()				
 DECLARE
     NOME MEDICOS.NOME%TYPE;
     SALARIO MEDICOS.SALARIO%TYPE;
